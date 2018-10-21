@@ -1,4 +1,4 @@
-# Copyright 2014 The Android Open Source Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,4 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_discovery.mk
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 1080p
+
+# Inherit device parts
+$(call inherit-product, device/sony/discovery/aosp_h3213.mk)
+
+# Override Product Name
+PRODUCT_NAME := omni_discovery
+PRODUCT_MODEL := Xperia XA2 Ultra
+
+# Assert ota packages to be equal to ro.product.device or ro.build.product:
+TARGET_OTA_ASSERT_DEVICE := none
+
+# Inherit rom parts
+$(call inherit-product, device/sony/common/omni.mk)
+$(call inherit-product, vendor/omni/config/gsm.mk)
