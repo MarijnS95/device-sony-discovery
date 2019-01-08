@@ -67,7 +67,9 @@
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">10</integer>
+    <!-- We are developers and mostly operate at night... At least make our
+         displays bearable to look at -->
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
